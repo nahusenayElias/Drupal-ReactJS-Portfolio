@@ -1,0 +1,16 @@
+.navbar {
+  background-color: darkslategrey !important;
+}
+
+.nav-link {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: lightgray !important;
+}
+
+.nav-link:active {
+  color: coral !important;
+}
