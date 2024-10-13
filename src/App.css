@@ -1,9 +1,9 @@
 .navbar {
-  background-color: darkslategrey !important;
+  background-color: #4C687A !important;
 }
 
 .nav-link {
-  color: white !important;
+  color: whitesmoke !important;
   transition: color 0.3s ease-in-out;
 }
 
