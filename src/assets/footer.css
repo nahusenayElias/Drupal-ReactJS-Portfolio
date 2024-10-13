@@ -1,0 +1,23 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #4C687A !important;
+  }
+
+  .footer a {
+    color: #CEDDDE;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .footer a:hover {
+    color: lightgray;
+  }
+
+  .footer p {
+    margin: 0;
+  }
+
+  .fab, .fas {
+    font-size: 1.5rem;
+  }
