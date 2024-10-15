@@ -25,7 +25,6 @@ function Contact() {
 
   return (
     <div className="Contact">
-      <h1>Contact Information</h1>
       {contact.map((item) => (
         <section key={item.id}>
           <h2>{item.attributes.title}</h2>
