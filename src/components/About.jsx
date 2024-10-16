@@ -1,65 +1,65 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DOMPurify from 'dompurify';  // Import DOMPurify for sanitizing HTML
-import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from 'react-bootstrap';
 
 function About() {
-  const [about, setAbout] = useState([]);
+  const [about, setAbout] = useState(null);
+  const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch data from Drupal JSON:API with image field included
-    axios.get('http://localhost:61438/jsonapi/node/aboutt?include=field_image')
+    axios
+      .get('http://localhost:61438/jsonapi/node/about?include=field_about_image')
       .then((response) => {
-        setAbout(response.data.data);
+        const aboutData = response.data.data[0];
+        setAbout(aboutData);
+
+
+        if (response.data.included && response.data.included.length > 0) {
+          const imageData = response.data.included.find(
+            (item) => item.type === 'file--file'
+          );
+          if (imageData) {
+            const imageUrl = imageData.attributes.uri.url;
+            setImage(imageUrl);
+          }
+        }
+
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching about data:", err);
+        console.error('Error fetching data:', err);
         setError(err);
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <div>Loading about data...</div>;
-  if (error) return <div>Error loading about data: {error.message}</div>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading content.</div>;
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center">About Me</h1>
-      <div className="row">
-        {about.map((item) => {
-          // Find the image URL from the included data
-          const imageUrl = item.relationships.field_image.data
-            ? `http://localhost:61438${item.included.find(image => image.id === item.relationships.field_image.data.id)?.attributes.uri.url}`
-            : null;
+    <div className="d-flex justify-content-center">
 
-          return (
-            <div className="col-md-12" key={item.id}>
-              <div className="card mb-4">
-                <div className="row g-0">
-                  {imageUrl && (
-                    <div className="col-md-4">
-                      {/* Display the image */}
-                      <img src={imageUrl} alt={item.attributes.title} className="img-fluid rounded-start" />
-                    </div>
-                  )}
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      {/* Display the title */}
-                      <h5 className="card-title">{item.attributes.title}</h5>
-                      {/* Render the sanitized body content */}
-                      <p className="card-text" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.attributes.body.processed) }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+    <Card style={{ width: '18rem' }}>
+
+    <div className="container">
+      <h1>{about.attributes.title}</h1>
+      {image && (
+        <img
+        src={`http://localhost:61438${image}`}
+        alt="About Image"
+        className="img-fluid mb-3"
+        />
+        )}
+      <div
+        dangerouslySetInnerHTML={{ __html: about.attributes.body.processed }}
+        />
     </div>
+        </Card>
+        <div className='mt-3' style={ {marginBottom: '20px'}}></div>
+        </div>
   );
 }
 
