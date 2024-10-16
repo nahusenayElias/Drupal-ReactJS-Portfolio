@@ -40,9 +40,9 @@ function About() {
   if (error) return <div>Error loading content.</div>;
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center mb-4">
 
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '22rem' }}>
 
     <div className="container">
       <h1>{about.attributes.title}</h1>
