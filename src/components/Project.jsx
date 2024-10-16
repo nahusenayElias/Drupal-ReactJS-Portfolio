@@ -24,11 +24,11 @@ function Project() {
   if (error) return <div>Error loading project data: {error.message}</div>;
 
   return (
-    <div className="Project">
+
+    <div className="d-flex container-fluid justify-center">
       {projects.map((project) => (
         <section key={project.id}>
           <h2>{project.attributes.title}</h2>
-          {/* Sanitize HTML using DOMPurify */}
           <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(project.attributes.body.processed) }} />
         </section>
       ))}
