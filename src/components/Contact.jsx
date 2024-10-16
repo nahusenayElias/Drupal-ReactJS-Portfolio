@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DOMPurify from 'dompurify';  // Import DOMPurify
+import DOMPurify from 'dompurify';  
 
 function Contact() {
   const [contact, setContact] = useState([]);
@@ -28,7 +28,6 @@ function Contact() {
       {contact.map((item) => (
         <section key={item.id}>
           <h2>{item.attributes.title}</h2>
-          {/* Sanitize HTML using DOMPurify */}
           <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.attributes.body.processed) }} />
         </section>
       ))}
