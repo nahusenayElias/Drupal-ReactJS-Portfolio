@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DOMPurify from 'dompurify';  
+import DOMPurify from 'dompurify';
+import { Card } from 'react-bootstrap';
 
 function Contact() {
   const [contact, setContact] = useState([]);
@@ -24,7 +25,9 @@ function Contact() {
   if (error) return <div>Error loading contact data: {error.message}</div>;
 
   return (
-    <div className="Contact">
+    <Card className="card text-center align-items-center">
+      <div >
+
       {contact.map((item) => (
         <section key={item.id}>
           <h2>{item.attributes.title}</h2>
@@ -32,6 +35,7 @@ function Contact() {
         </section>
       ))}
     </div>
+      </Card>
   );
 }
 
