@@ -1,15 +1,12 @@
-
 .footer-container {
   position: relative;
   bottom: 0;
   width: 100%;
-
 }
 
-
-.footer {
+.footer-content {
   display: flex;
-  background-color: hsl(22, 18%, 30%);
+  background-color: #cd723d;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -17,9 +14,7 @@
   padding: 10px 0;
 }
 
-
 .icon-container {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,13 +25,11 @@
   margin: 0 10px;
 }
 
-
-.footer p {
-  background-color: hsl(22, 18%, 30%);
+.copyright-container p {
   margin: 0;
   font-size: 14px;
 }
 
-.py-3 {
-  padding: 5px 0;
+.nav-style {
+  background-color: #cd723d; 
 }
