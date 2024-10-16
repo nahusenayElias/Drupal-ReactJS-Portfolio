@@ -1,8 +1,6 @@
-// axios.get('http://localhost:61438/jsonapi/node/home_page')
- // Home.jsx
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import DOMPurify from 'dompurify';  // Import DOMPurify
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import DOMPurify from "dompurify"; 
 
 function Home() {
   const [homes, setHomes] = useState([]);
@@ -10,9 +8,10 @@ function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:61438/jsonapi/node/home_page')
+    axios
+      .get("http://localhost:61438/jsonapi/node/home_page")
       .then((response) => {
-        setHomes(response.data.data); // Fetch the home data
+        setHomes(response.data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -30,8 +29,11 @@ function Home() {
       {homes.map((home) => (
         <section key={home.id}>
           <h2>{home.attributes.title}</h2>
-          {/* Sanitize HTML using DOMPurify */}
-          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(home.attributes.body.processed) }} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(home.attributes.body.processed),
+            }}
+          />
         </section>
       ))}
     </div>
