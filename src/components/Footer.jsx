@@ -3,8 +3,8 @@ import '../assets/footer.css';
 
 const Footer = () => {
   return (
-    <div className='footer'>
-      <footer className="footer bg-dark text-white d-flex flex-column justify-content-center align-items-center">
+    <div className='footer-container'>
+      <footer className="footer-content text-white d-flex flex-column justify-content-center align-items-center">
         <div className="icon-container d-flex justify-content-center align-items-center py-3">
           <a href="https://github.com/nahusenayElias" target="_blank" rel="noopener noreferrer" className="text-white mx-3">
             <i className="fab fa-github fa-2x"></i>
@@ -16,7 +16,7 @@ const Footer = () => {
             <i className="fas fa-envelope fa-2x"></i>
           </a>
         </div>
-        <div className="text-center py-3">
+        <div className="copyright-container">
           <p className="mb-0">&copy; 2024 Elias Hagos. All Rights Reserved.</p>
         </div>
       </footer>
