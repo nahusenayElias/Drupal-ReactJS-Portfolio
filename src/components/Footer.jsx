@@ -9,7 +9,7 @@ const Footer = () => {
           <a href="https://github.com/nahusenayElias" target="_blank" rel="noopener noreferrer" className="text-white mx-3">
             <i className="fab fa-github fa-2x"></i>
           </a>
-          <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" className="text-white mx-3">
+          <a href="https://fi.linkedin.com/in/elias-nahusenay-hagos" target="_blank" rel="noopener noreferrer" className="text-white mx-3">
             <i className="fab fa-linkedin fa-2x"></i>
           </a>
           <a href="mailto:eliasars@yahoo.com" className="text-white mx-3">
