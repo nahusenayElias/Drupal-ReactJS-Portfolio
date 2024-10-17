@@ -117,3 +117,8 @@ we can install the react vite project
 ```bash
 npm create vite@latest
 ```
+
+
+### License
+
+This project is open-source and available under the MIT License.
