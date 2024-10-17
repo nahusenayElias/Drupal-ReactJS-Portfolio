@@ -10,8 +10,6 @@ This project is part of the Drupal Course at BCH. It is a personal portfolio. Th
 
 * Technologies
 
-* Prerequisites
-
 * Setup Instructions
 
   - Backend (Drupal)
@@ -21,8 +19,6 @@ This project is part of the Drupal Course at BCH. It is a personal portfolio. Th
 * Usage
 
 * Terminal Commands
-
-* Contributing
 
 * License
 
@@ -52,3 +48,58 @@ This project demonstrates the decoupling of a Drupal backend and a React fronten
 * Bootstrap (for styling)
 
 * JSON API Drupal module
+
+### Setup and instructions
+
+1. Drupal app needs to be installed, if it hasn't already.
+
+```bash
+mkdir mydrupalapp
+cd mydrupalapp
+lando init --recipe drupal10 --webroot web --name mydrupalapp
+
+```
+
+```bash
+lando composer create-project drupal/recommended-project .
+
+```
+
+```bash
+lando start
+```
+
+```bash
+lando drush site:install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-name=admin --account-pass=admin --site-name="My Drupal App"
+
+```
+
+```bash
+lando restart
+```
+
+>> To clear cache:
+
+```bash
+lando drush cr
+```
+
+2. Install and extend: `'JSONAPI Module'` or `'JSONAPI extras'`
+
+```bash
+lando composer require drupal/jsonapi_extras
+```
+
+or
+
+```bash
+lando composer require drupal/jsonapi
+
+```
+
+>> In order to use the module it must be enabled:
+
+```bash
+lando drush en jsonapi -y
+```
+
