@@ -1,8 +1,3 @@
-# React + Vite
+# Drupal and ReactJS Headless Portfolio Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>> This project is part of the Drupal Course at BCH. It is a personal portfolio. This project is a full-stack web application using Drupal as a backend CMS (Content Management System) and React as the frontend. The data (content) is stored in Drupal, fetched via JSONAPI module and displayed in React. The main pages include Home, About Me, Projects, and Contact.
