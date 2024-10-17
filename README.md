@@ -29,3 +29,26 @@ This project is part of the Drupal Course at BCH. It is a personal portfolio. Th
 ### Overview
 
 This project demonstrates the decoupling of a Drupal backend and a React frontend. The content (like Home, About, Projects, and Contact) is managed through the Drupal admin interface, and React is used to fetch and display the content dynamically using Axios and the JSON module in Drupal.
+
+### Features
+
+* Drupal as CMS.
+
+* ReactJS Frontend: Content displays dynamically with a responsive UI
+
+* Axios for HTTP requests: Fetch data from Drupal using `'jsonapi'` endpoint.
+
+* Bootstrap and css used for styling and to have enhanced user experience.
+
+
+### Technologies
+
+* Drupal (Backend)
+
+* React.js (Frontend)
+
+* Axios (for API requests)
+
+* Bootstrap (for styling)
+
+* JSON API Drupal module
