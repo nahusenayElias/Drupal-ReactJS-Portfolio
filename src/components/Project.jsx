@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import DOMPurify from 'dompurify';  // Import DOMPurify
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import DOMPurify from "dompurify"; // Import DOMPurify
 
 function Project() {
   const [projects, setProjects] = useState([]);
@@ -8,7 +8,8 @@ function Project() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:61438/jsonapi/node/project_page')
+    axios
+      .get("http://localhost:61438/jsonapi/node/project_page")
       .then((response) => {
         setProjects(response.data.data); // Fetch the project data
         setLoading(false);
@@ -24,14 +25,25 @@ function Project() {
   if (error) return <div>Error loading project data: {error.message}</div>;
 
   return (
-
-    <div className="d-flex container-fluid justify-center">
-      {projects.map((project) => (
-        <section key={project.id}>
-          <h2>{project.attributes.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(project.attributes.body.processed) }} />
-        </section>
-      ))}
+    <div className="project-wrapper">
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-lg-8 col-md-10 mx-auto">
+            {projects.map((project) => (
+              <section key={project.id}>
+                <h2>{project.attributes.title}</h2>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      project.attributes.body.processed
+                    ),
+                  }}
+                />
+              </section>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
