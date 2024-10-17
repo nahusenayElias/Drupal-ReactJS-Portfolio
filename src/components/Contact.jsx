@@ -25,8 +25,13 @@ function Contact() {
   if (error) return <div>Error loading contact data: {error.message}</div>;
 
   return (
-    <Card className="card text-center align-items-center">
-      <div >
+    <div className="project-wrapper">
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-lg-8 col-md-10 mx-auto">
+
+
+
 
       {contact.map((item) => (
         <section key={item.id}>
@@ -35,7 +40,9 @@ function Contact() {
         </section>
       ))}
     </div>
-      </Card>
+      </div>
+      </div>
+      </div>
   );
 }
 
