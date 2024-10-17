@@ -72,6 +72,7 @@ lando start
 ```bash
 lando drush site:install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-name=admin --account-pass=admin --site-name="My Drupal App"
 ```
+- To restart the server:
 
 ```bash
 lando restart
@@ -101,7 +102,7 @@ lando composer require drupal/jsonapi
 lando drush en jsonapi -y
 ```
 
-- Other useful commands:
+- Other useful command:
 
 To check lando logs:
 
@@ -109,3 +110,10 @@ To check lando logs:
 lando logs
 ```
 
+**Frontend**
+
+we can install the react vite project
+
+```bash
+npm create vite@latest
+```
