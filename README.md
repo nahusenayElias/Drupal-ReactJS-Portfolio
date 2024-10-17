@@ -51,18 +51,18 @@ This project demonstrates the decoupling of a Drupal backend and a React fronten
 
 ### Setup and instructions
 
+**Backend**
+
 1. Drupal app needs to be installed, if it hasn't already.
 
 ```bash
 mkdir mydrupalapp
 cd mydrupalapp
 lando init --recipe drupal10 --webroot web --name mydrupalapp
-
 ```
 
 ```bash
 lando composer create-project drupal/recommended-project .
-
 ```
 
 ```bash
@@ -71,7 +71,6 @@ lando start
 
 ```bash
 lando drush site:install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-name=admin --account-pass=admin --site-name="My Drupal App"
-
 ```
 
 ```bash
@@ -94,12 +93,19 @@ or
 
 ```bash
 lando composer require drupal/jsonapi
-
 ```
 
 >> In order to use the module it must be enabled:
 
 ```bash
 lando drush en jsonapi -y
+```
+
+- Other useful commands:
+
+To check lando logs:
+
+```bash
+lando logs
 ```
 
